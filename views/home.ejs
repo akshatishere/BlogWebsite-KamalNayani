@@ -1,0 +1,29 @@
+
+<%- include("partials/header"); -%>
+
+    <h1>Home</h1>
+    <p> <%= startingContent %> </p>
+
+
+  <%  posts.forEach(function(post){ %>
+
+
+    <div class="row">
+      <div class="col-lg-5">
+          <h1><%=post.title%></h1>
+    <pre class = "bor"><div class="b"><%=post.content.substring(0, 120) + " ..."%></div></pre>
+    <button type="button" class="btn btn-info"><a class="read" href="/posts/<%=post._id%>">Read More</a></button>
+    </div>
+    <div class="col-lg-5">
+        <h1><%=post.title%></h1>
+  <pre class = "bor"><div class="b"><%=post.content.substring(0, 120) + " ..."%></div></pre>
+  <button type="button" class="btn btn-info"><a class="read" href="/posts/<%=post._id%>">Read More</a></button>
+  </div>
+
+
+    </div>
+
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>

@@ -1,0 +1,48 @@
+<%- include("partials/header"); -%>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+
+<div class="row">
+  <div class="col-lg-8 col-md-8">
+    <div class="cont">
+      <h1><%=title%></h1>
+      <div class="btn-group" role="group">
+        <a class="font-button btn btn-secondary plus"><i class="fas fa-search-plus"></i></a>
+        <a class="font-button btn btn-secondary minus"><i class="fas fa-search-minus"></i></a>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      </div>
+    </div>
+    <pre id="target"><%=content%></pre>
+  </div>
+  <div id="sticky">
+
+    <div class="card text-center" style="width: 30rem;">
+        <img class="profile" src="/images/profile.jpg" alt="profile">
+  <div class="card-body">
+    <h4 class="card-title">Kamal Kishor Bhardwaj</h4>
+    <p class="card-text">Development Officer, L.I.C.</p>
+    <a href="https://github.com/BeSanidhya"><i class="fab fa-twitter footer-icon grow"></i></a>
+    <a href="https://github.com/BeSanidhya"><i class="fab fa-facebook-f footer-icon grow"></i></a>
+    <a href="https://github.com/BeSanidhya"><i class="fab fa-instagram footer-icon grow"></i></a>
+    <a href="https://github.com/BeSanidhya"><i class="fas fa-envelope-square footer-icon grow"></i></a>
+  </div>
+</div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+    $(".font-button").bind("click", function() {
+      var size = parseInt($('#target').css("font-size"));
+      if ($(this).hasClass("plus")) {
+        size = size + 2;
+      } else {
+        size = size - 2;
+        if (size <= 10) {
+          size = 10;
+        }
+      }
+      $('#target').css("font-size", size);
+    });
+  });
+</script>
+
+<%- include("partials/footer"); -%>
