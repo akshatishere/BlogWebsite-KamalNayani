@@ -4,26 +4,45 @@
     <h1>Home</h1>
     <p> <%= startingContent %> </p>
 
+    <% const evenP=[]; %>
+    <% const oddP=[]; %>
+    <%var j;%>
+  <%  for(var i=0;i<posts.length;i++){ %>
 
-  <%  posts.forEach(function(post){ %>
+  <%  if(i%2==0){ %>
+    <%   evenP.push(posts[i]); %>
+  <%  }else{ %>
+    <% oddP.push(posts[i]);%>
+  <%  } %>
+  <%  } %>
+<%  for(j=0;j<oddP.length;j++){ %>
 
-
-    <div class="row">
+     <div class="row">
       <div class="col-lg-5">
-          <h1><%=post.title%></h1>
-    <pre class = "bor"><div class="b"><%=post.content.substring(0, 120) + " ..."%></div></pre>
-    <button type="button" class="btn btn-info"><a class="read" href="/posts/<%=post._id%>">Read More</a></button>
+          <h1><%=evenP[j].title%></h1>
+    <pre class = "bor"><div class="b"><%=evenP[j].content.substring(0, 120) + " ..."%></div></pre>
+    <button type="button" class="btn btn-info"><a class="read" href="/posts/<%=evenP[j]._id%>">Read More</a></button>
     </div>
     <div class="col-lg-5">
-        <h1><%=post.title%></h1>
-  <pre class = "bor"><div class="b"><%=post.content.substring(0, 120) + " ..."%></div></pre>
-  <button type="button" class="btn btn-info"><a class="read" href="/posts/<%=post._id%>">Read More</a></button>
+        <h1><%=oddP[j].title%></h1>
+  <pre class = "bor"><div class="b"><%=oddP[j].content.substring(0, 120) + " ..."%></div></pre>
+  <button type="button" class="btn btn-info"><a class="read" href="/posts/<%=oddP[j]._id%>">Read More</a></button>
   </div>
-
-
     </div>
 
-    <% }) %>
+<%  } %>
+<%  if(oddP.length != evenP.length){ %>
+    <div class="row">
+     <div class="col-lg-5">
+         <h1><%=evenP[j].title%></h1>
+   <pre class = "bor"><div class="b"><%=evenP[j].content.substring(0, 120) + " ..."%></div></pre>
+   <button type="button" class="btn btn-info"><a class="read" href="/posts/<%=evenP[j]._id%>">Read More</a></button>
+   </div>
+     </div>
+<%  } %>
+
+
+
 
 
 <%- include("partials/footer"); -%>
